@@ -8,6 +8,11 @@ public class Pieza {
     private String nombre, material;
     private int tiempoElabo;
 
+    public Pieza() {
+    }
+    
+    
+
     public Pieza(String nombre, String material, int tiempoElabo) {
         this.nombre = nombre;
         this.material = material;
@@ -42,7 +47,6 @@ public class Pieza {
     public String toString() {
         return nombre;
     }
-    
     
     
 
