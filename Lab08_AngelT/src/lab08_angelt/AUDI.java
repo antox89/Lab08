@@ -630,7 +630,7 @@ public class AUDI extends javax.swing.JFrame {
             
             //((Pieza)modeloTabla.getValueAt(jt_carros.getSelectedRow(), 2)).toString();
             Object[] pieza ={/*p.getNombre(),p.getPartes(),((Pieza)p.getPiezas().get(jl_piezas.getSelectedIndex()).toString())*/listaPieza.get(jl_piezas.getSelectedIndex()).getNombre()};
-            modeloTabla.setValueAt(pieza, jt_carros.getSelectedRow(), 2);
+            modeloTabla.setValueAt(p, jt_carros.getSelectedRow(), 2);
             jt_carros.setModel(modeloTabla);
             
             
