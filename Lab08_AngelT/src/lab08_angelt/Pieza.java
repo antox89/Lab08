@@ -10,8 +10,6 @@ public class Pieza {
 
     public Pieza() {
     }
-    
-    
 
     public Pieza(String nombre, String material, int tiempoElabo) {
         this.nombre = nombre;
