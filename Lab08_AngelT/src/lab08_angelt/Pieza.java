@@ -40,7 +40,7 @@ public class Pieza {
 
     @Override
     public String toString() {
-        return "Pieza{" + "nombre=" + nombre + '}';
+        return nombre;
     }
     
     
