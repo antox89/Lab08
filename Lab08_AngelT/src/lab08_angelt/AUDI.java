@@ -2,6 +2,7 @@
 package lab08_angelt;
 
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -69,6 +70,15 @@ public class AUDI extends javax.swing.JFrame {
         jd_ensamblaje = new javax.swing.JDialog();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        Mostrar = new javax.swing.JTabbedPane();
+        jPanel2 = new javax.swing.JPanel();
+        bt_carros = new javax.swing.JButton();
+        bt_partes = new javax.swing.JButton();
+        bt_piezas = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        cb_carros = new javax.swing.JComboBox<>();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        jtree_mostrarCarros = new javax.swing.JTree();
         jMenuBar1 = new javax.swing.JMenuBar();
         jm_sistema = new javax.swing.JMenu();
         jmi_carros = new javax.swing.JMenuItem();
@@ -473,6 +483,87 @@ public class AUDI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema AUDI");
 
+        bt_carros.setText("Carros");
+        bt_carros.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_carrosMouseClicked(evt);
+            }
+        });
+
+        bt_partes.setText("Partes");
+        bt_partes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_partesMouseClicked(evt);
+            }
+        });
+
+        bt_piezas.setText("Piezas");
+        bt_piezas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_piezasMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(104, 104, 104)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bt_piezas)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(bt_carros)
+                        .addGap(144, 144, 144)
+                        .addComponent(bt_partes)))
+                .addContainerGap(188, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(91, 91, 91)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bt_carros)
+                    .addComponent(bt_partes))
+                .addGap(77, 77, 77)
+                .addComponent(bt_piezas)
+                .addContainerGap(100, Short.MAX_VALUE))
+        );
+
+        Mostrar.addTab("Crear", jPanel2);
+
+        cb_carros.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione un carro..." }));
+
+        treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Carros");
+        jtree_mostrarCarros.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane8.setViewportView(jtree_mostrarCarros);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(197, 197, 197)
+                        .addComponent(cb_carros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(110, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(cb_carros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(67, Short.MAX_VALUE))
+        );
+
+        Mostrar.addTab("Mostrar", jPanel3);
+
         jm_sistema.setText("Sistema");
 
         jmi_carros.setText("Carros");
@@ -518,11 +609,17 @@ public class AUDI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 625, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(Mostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 577, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 399, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(Mostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
@@ -599,6 +696,8 @@ public class AUDI extends javax.swing.JFrame {
         Object[] newrow={car.getNombre(),car.getPiezas(),car.getPartes()};
         
         DefaultTableModel modeloTabla = (DefaultTableModel)jt_carros.getModel();
+        DefaultComboBoxModel modeloCB = (DefaultComboBoxModel)cb_carros.getModel();
+        modeloCB.addElement(nombre);
         modeloTabla.addRow(newrow);
         jt_carros.setModel(modeloTabla);
         listaCarro.add(car);
@@ -622,15 +721,18 @@ public class AUDI extends javax.swing.JFrame {
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         if(jl_piezas.getSelectedIndex()>=0 &jt_carros.getSelectedRow()>=0){
             
-            Carro p = new Carro();
-            p.setPieza(new Pieza(listaPieza.get(jl_piezas.getSelectedIndex()).toString(),"sddd",566));
+            Carro car = new Carro();
+            Pieza p = new Pieza();
+            
+            listaPieza.get(jl_piezas.getSelectedIndex()).getNombre();
+            car.setPieza(listaPieza.get(jl_piezas.getSelectedIndex()));
             
             DefaultTableModel modeloTabla = (DefaultTableModel)jt_carros.getModel();
             //DefaultListModel modeloList = (DefaultListModel)jl_piezas.getModel();
             
             //((Pieza)modeloTabla.getValueAt(jt_carros.getSelectedRow(), 2)).toString();
             Object[] pieza ={/*p.getNombre(),p.getPartes(),((Pieza)p.getPiezas().get(jl_piezas.getSelectedIndex()).toString())*/listaPieza.get(jl_piezas.getSelectedIndex()).getNombre()};
-            modeloTabla.setValueAt(p, jt_carros.getSelectedRow(), 2);
+            modeloTabla.setValueAt(car, jt_carros.getSelectedRow(), 2);
             jt_carros.setModel(modeloTabla);
             
             
@@ -639,6 +741,27 @@ public class AUDI extends javax.swing.JFrame {
                     JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButton2MouseClicked
+
+    private void bt_piezasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_piezasMouseClicked
+        jd_piezas.pack();
+        jd_piezas.setModal(true);
+        jd_piezas.setLocationRelativeTo(this);
+        jd_piezas.setVisible(true);
+    }//GEN-LAST:event_bt_piezasMouseClicked
+
+    private void bt_carrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_carrosMouseClicked
+        jd_carros.pack();
+        jd_carros.setModal(true);
+        jd_carros.setLocationRelativeTo(this);
+        jd_carros.setVisible(true);
+    }//GEN-LAST:event_bt_carrosMouseClicked
+
+    private void bt_partesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_partesMouseClicked
+        jd_partes.pack();
+        jd_partes.setModal(true);
+        jd_partes.setLocationRelativeTo(this);
+        jd_partes.setVisible(true);
+    }//GEN-LAST:event_bt_partesMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -673,10 +796,15 @@ public class AUDI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTabbedPane Mostrar;
     private javax.swing.JButton bt_agregarParte;
+    private javax.swing.JButton bt_carros;
     private javax.swing.JButton bt_crearCarro;
     private javax.swing.JButton bt_crearPieza;
     private javax.swing.JButton bt_eliminar;
+    private javax.swing.JButton bt_partes;
+    private javax.swing.JButton bt_piezas;
+    private javax.swing.JComboBox<String> cb_carros;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -695,6 +823,8 @@ public class AUDI extends javax.swing.JFrame {
     private javax.swing.JList<String> jList1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -702,6 +832,7 @@ public class AUDI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JTable jTable1;
     private javax.swing.JDialog jd_carros;
@@ -721,6 +852,7 @@ public class AUDI extends javax.swing.JFrame {
     private javax.swing.JTable jt_partesPiezas;
     private javax.swing.JTable jt_piezas;
     private javax.swing.JTree jtree_carros;
+    private javax.swing.JTree jtree_mostrarCarros;
     private javax.swing.JPopupMenu pm_arbol;
     private javax.swing.JTextField tf_materialPieza;
     private javax.swing.JTextField tf_nombreCarro;

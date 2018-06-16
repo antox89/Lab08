@@ -52,9 +52,8 @@ public class Carro {
 
     @Override
     public String toString() {
-        return "Carro"+" nombre: "+nombre + "piezas=" + piezas + " partes: "+partes+'}';
+        return nombre;
     }
-    
     
 
 }
